@@ -1,11 +1,38 @@
 ---
 title: "r-exploring"
+execute: 
+  warning: FALSE
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+```{r}
+library(tidyverse)
+library(GGally)
+library(skimr)
+```
 
 ```{r}
-1 + 1
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+
+ggpairs(diamonds)
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point(color = 'purple')
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) + geom_histogram(fill = 'purple', color = 'white')
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = clarity, y = price)) + geom_boxplot(color = 'purple')
+```
+
+```{r}
+View(diamonds)
 ```
